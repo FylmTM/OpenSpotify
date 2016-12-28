@@ -38,3 +38,5 @@ Download links:
 - https://developer.spotify.com/download/libspotify/libspotify-12.1.51-Linux-armv6-release.tar.gz
 - https://developer.spotify.com/download/libspotify/libspotify-12.1.51-Linux-armv7-release.tar.gz
 - https://developer.spotify.com/download/libspotify/libspotify-12.1.103-Linux-armv6-bcm2708hardfp-release.tar.gz
+
+My fork of [node-libspotify](https://github.com/FylmTM/node-libspotify) with Windows support.
