@@ -1,0 +1,9 @@
+.playerCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playerCenter > div {
+  text-align: center;
+}

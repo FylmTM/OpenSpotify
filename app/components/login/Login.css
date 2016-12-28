@@ -1,0 +1,8 @@
+.loginContainer {
+  padding-top: 100px;
+  justify-content: center;
+}
+
+.loginContainer > div {
+  width: 300px;
+}

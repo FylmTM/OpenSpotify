@@ -1,0 +1,23 @@
+.mainContainer {
+  display: flex;
+  flex-flow: column;
+}
+
+.mainContent {
+  flex: 1;
+}
+
+.mainContentPane {
+  padding: 10px;
+}
+
+.sidebar {
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+  flex-basis: 200px !important;
+  padding-right: 0 !important;
+}
+
+.player {
+  height: 50px;
+}
