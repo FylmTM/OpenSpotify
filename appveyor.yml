@@ -21,7 +21,13 @@ shallow_clone: true
 clone_depth: 1
 
 install:
-  - ps: Install-Product node $env:nodejs_version
+  - ps: |
+     New-Item -ItemType Directory -Force -Path C:\build
+     $source = "https://developer.spotify.com/download/libspotify/libspotify-12.1.51-win32-release.zip"
+     $destination = "C:\build\libspotify-win32.zip"
+     Invoke-WebRequest $source -OutFile $destination
+     Expand-Archive C:\build\libspotify-win32.zip -DestinationPath C:\build\libspotify
+     Install-Product node $env:nodejs_version x86
   - set CI=true
   - npm install -g npm@latest
   - set PATH=%APPDATA%\npm;%PATH%

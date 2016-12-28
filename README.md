@@ -1,4 +1,5 @@
 # OpenSpotify
+[![Build status](https://ci.appveyor.com/api/projects/status/hhugqyes72kg06ne/branch/master?svg=true)](https://ci.appveyor.com/project/FylmTM/openspotify/branch/master)
 
 OpenSpotify is unofficial opinionated open-source Spotify client.  
 
