@@ -1,5 +1,18 @@
 # Development guide
 
+This is guide on setting up OpenSpotify for local development. 
+
+## Setup
+
+1. Create application in [Spotify Developer](https://developer.spotify.com/) area.
+2. Add client id & secret to `.env` in project root (check `.env.example` for inspiration).
+3. Get application key from Libspotify [here](https://developer.spotify.com/technologies/libspotify/application-keys/).
+4. Place application key into `app/backend/libspotify/app.key`
+
+## Development
+
+Run `npm run dev` to start development server & application.
+
 ## Libspotify
 
 Audio playback is based on `libspotify`.
