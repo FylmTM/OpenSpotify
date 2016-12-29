@@ -52,8 +52,9 @@ TODO:
 - [ ] Rewrite several client parts completely
 - [ ] Write tests
 - [ ] Configure cross-platform CI
+- [ ] Release packages that actually works
 
-If you fell brave enough and wan't to contribute something right now, then checkout [Development]('docs/development.md) doc page for some details.
+If you fell brave enough and wan't to contribute something right now, then checkout [Development](docs/development.md) doc page for some details.
 
 # Feedback
 

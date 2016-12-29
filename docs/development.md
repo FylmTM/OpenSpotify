@@ -9,6 +9,13 @@ This is guide on setting up OpenSpotify for local development.
 3. Get application key from Libspotify [here](https://developer.spotify.com/technologies/libspotify/application-keys/).
 4. Place application key into `app/backend/libspotify/app.key`
 
+### Linux
+
+Install development libraries:
+```bash
+apt-get install libasound2-dev libgnome-keyring-dev
+```
+
 ## Development
 
 Run `npm run dev` to start development server & application.
