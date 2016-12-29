@@ -7,18 +7,32 @@
     "node": true
   },
   "rules": {
-    "max-len": ["error", 120, 2, {
-      "ignoreUrls": true,
-      "ignoreComments": false,
-      "ignoreRegExpLiterals": true,
-      "ignoreStrings": true,
-      "ignoreTemplateLiterals": true
-    }],
-    "arrow-parens": ["off"],
+    "max-len": [
+      "error",
+      120,
+      2,
+      {
+        "ignoreUrls": true,
+        "ignoreComments": false,
+        "ignoreRegExpLiterals": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ],
+    "arrow-parens": [
+      "off"
+    ],
     "consistent-return": "off",
     "comma-dangle": "off",
     "generator-star-spacing": "off",
-    "import/no-unresolved": ["error", { "ignore": ["electron"] }],
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": [
+          "electron"
+        ]
+      }
+    ],
     "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
     "no-use-before-define": "off",
@@ -28,19 +42,30 @@
     "promise/catch-or-return": 2,
     "promise/no-native": 0,
     "react/jsx-no-bind": "off",
-    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
     "react/prefer-stateless-function": "off",
     "react/jsx-space-before-closing": "off",
     "react/forbid-prop-types": "off",
-    "react/sort-comp": [1, {
-      "order": [
-        "type-annotations",
-        "static-methods",
-        "lifecycle",
-        "everything-else",
-        "render"
-      ]
-    }],
+    "react/sort-comp": [
+      1,
+      {
+        "order": [
+          "type-annotations",
+          "static-methods",
+          "lifecycle",
+          "everything-else",
+          "render"
+        ]
+      }
+    ],
     "flowtype-errors/show-errors": 2
   },
   "plugins": [
