@@ -1,7 +1,7 @@
 // @flow
-import React, { Component } from "react";
-import { IndexLink } from "react-router";
-import styles from "./Sidebar.css";
+import React, { Component } from 'react';
+import { IndexLink } from 'react-router';
+import styles from './Sidebar.css';
 
 export class Sidebar extends Component {
 
@@ -12,6 +12,6 @@ export class Sidebar extends Component {
           <IndexLink to="/main" className="pt-menu-item" activeClassName={styles.active}>Songs</IndexLink>
         </li>
       </ul>
-    )
+    );
   }
 }

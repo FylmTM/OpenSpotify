@@ -1,8 +1,8 @@
 // @flow
-import React, { Component } from "react";
-import { Link } from "react-router";
-import styles from "./Player.css";
-import { Spinner } from "@blueprintjs/core";
+import React, { Component } from 'react';
+import { Spinner } from '@blueprintjs/core';
+import { Link } from 'react-router';
+import styles from './Player.css';
 
 export class Player extends Component {
   props: {
@@ -27,15 +27,15 @@ export class Player extends Component {
     };
   }
 
-  handlePlay = (event) => {
+  handlePlay = (event: Object) => {
     event.preventDefault();
-    this.setState({playing: true});
+    this.setState({ playing: true });
     this.props.play(this.currentTrack, 0);
   };
 
-  handleStop = (event) => {
+  handleStop = (event: Object) => {
     event.preventDefault();
-    this.setState({playing: false});
+    this.setState({ playing: false });
     this.props.stop();
   };
 
@@ -46,14 +46,14 @@ export class Player extends Component {
   }
 
   render() {
-    if (this.props.state.authState == 'LOGIN_STARTED') {
+    if (this.props.state.authState === 'LOGIN_STARTED') {
       return (
         <div className={`${styles.playerCenter} full-height`}>
           <div>
             <Spinner className="pt-small"/>
           </div>
         </div>
-      )
+      );
     }
 
     if (!this.props.state.enabled) {
@@ -64,7 +64,7 @@ export class Player extends Component {
             <Link to="/main/configuration">Configure libspotify.</Link>
           </div>
         </div>
-      )
+      );
     }
 
     if (this.state.playing) {
@@ -72,7 +72,7 @@ export class Player extends Component {
         <div className={`${styles.playerCenter} full-height`}>
           <button className="pt-button" onClick={this.handleStop}>stop</button>
         </div>
-      )
+      );
     } else {
       return (
         <div className={`${styles.playerCenter} full-height`}>

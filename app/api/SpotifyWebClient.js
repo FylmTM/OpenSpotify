@@ -1,6 +1,6 @@
 // @flow
-import { ipcRenderer } from "electron";
-import SpotifyWebApi from "spotify-web-api-node";
+import { ipcRenderer } from 'electron';
+import SpotifyWebApi from 'spotify-web-api-node';
 
 const accessTokenKey = 'spotifyWebAccessToken';
 const refreshTokenKey = 'spotifyWebRefreshToken';
@@ -25,9 +25,9 @@ export class SpotifyWebClient {
       ipcRenderer.once('spotify-web-auth-result', (event, args: Object) => {
         switch (args.type) {
           case 'success':
-            localStorage.setItem(accessTokenKey, args.data.body['access_token']);
-            localStorage.setItem(refreshTokenKey, args.data.body['refresh_token']);
-            this.setExpireTime(args.data.body['expires_in']);
+            localStorage.setItem(accessTokenKey, args.data.body.access_token);
+            localStorage.setItem(refreshTokenKey, args.data.body.refresh_token);
+            this.setExpireTime(args.data.body.expires_in);
             this.populateTokens(true);
             resolve('success');
             break;
@@ -57,13 +57,11 @@ export class SpotifyWebClient {
       return Promise.resolve(userData);
     } else {
       return this.apiRequest()
-        .then(() => {
-          return spotifyWebApi.getMe()
+        .then(() => spotifyWebApi.getMe()
             .then(data => {
               userData = data.body;
               return Promise.resolve(userData);
-            });
-        })
+            }));
     }
   }
 
@@ -73,22 +71,22 @@ export class SpotifyWebClient {
     spotifyWebApi.resetRefreshToken();
     localStorage.removeItem(accessTokenKey);
     localStorage.removeItem(refreshTokenKey);
-    localStorage.removeItem(expiresInKey)
+    localStorage.removeItem(expiresInKey);
   }
 
-  static apiRequest(): Promise {
+  static apiRequest(): Promise<void> {
     this.populateTokens();
 
-    let msTillExpiration = this.getExpireTime() - Date.now();
+    const msTillExpiration = this.getExpireTime() - Date.now();
     if (msTillExpiration < 5 * 60 * 1000) { // 5 minutes
       return spotifyWebApi.refreshAccessToken()
         .then((data) => {
-            console.log("Access token expired. Refreshing...");
-          localStorage.setItem(accessTokenKey, data.body['access_token']);
-          this.setExpireTime(data.body['expires_in']);
-          spotifyWebApi.setAccessToken(data.body['access_token']);
+          console.log('Access token expired. Refreshing...');
+          localStorage.setItem(accessTokenKey, data.body.access_token);
+          this.setExpireTime(data.body.expires_in);
+          spotifyWebApi.setAccessToken(data.body.access_token);
           return Promise.resolve();
-        })
+        });
     } else {
       return Promise.resolve();
     }
@@ -110,10 +108,10 @@ export class SpotifyWebClient {
   }
 
   static getExpireTime(): number {
-    return parseInt(localStorage.getItem(expiresInKey));
+    return parseInt(localStorage.getItem(expiresInKey), 10);
   }
 
   static setExpireTime(expireInSecond: number) {
-    localStorage.setItem(expiresInKey, Date.now() + (expireInSecond * 1000));
+    localStorage.setItem(expiresInKey, `${Date.now() + (expireInSecond * 1000)}`);
   }
 }

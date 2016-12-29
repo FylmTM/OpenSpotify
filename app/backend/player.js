@@ -1,25 +1,25 @@
 // @flow
-import libspotify from "libspotify";
-import Speaker from "speaker";
+import Speaker from 'speaker';
+import libspotify from 'libspotify';
 
 export default class Player {
-  _session: libspotify.Session;
-  _player: libspotify.Player;
-  _speaker: Speaker;
-  _playing: boolean;
+  session: libspotify.Session;
+  player: libspotify.Player;
+  speaker: Speaker;
+  playing: boolean;
 
   constructor(session: libspotify.Session) {
-    this._session = session;
-    this._player = session.getPlayer();
-    this._speaker = null;
-    this._playing = false;
+    this.session = session;
+    this.player = session.getPlayer();
+    this.speaker = null;
+    this.playing = false;
   }
 
   play(spotifyUri: string, offsetInMs: number) {
-    console.log("Player - play");
+    console.log('Player - play');
     // Check if we are playing any song right now.
-    if (this._playing) {
-      console.log("Player is currently playing, Stopping....");
+    if (this.playing) {
+      console.log('Player is currently playing, Stopping....');
       this.stop();
     }
 
@@ -27,52 +27,52 @@ export default class Player {
     setTimeout(() => {
       const track = libspotify.Track.getFromUrl(spotifyUri);
       track.on('ready', () => {
-        this._playing = true;
+        this.playing = true;
 
         this.createSpeaker();
-        this._player.load(track);
-        this._player.seek(offsetInMs);
-        this._player
-          .pipe(this._speaker)
+        this.player.load(track);
+        this.player.seek(offsetInMs);
+        this.player
+          .pipe(this.speaker)
           .on('error', (e) => {
             // Usually it's okay. Sometimes we can hit a situation when there is
             // data writing into a stream and we are closing it at the same time.
-            console.error(e)
+            console.error(e);
           });
-        this._player.play();
+        this.player.play();
       });
     }, 50);
   }
 
   stop() {
-    console.log("Player - stop");
-    if (!this._playing) {
-      console.log("Player is currently not playing, do not do anything on stop.");
+    console.log('Player - stop');
+    if (!this.playing) {
+      console.log('Player is currently not playing, do not do anything on stop.');
       return;
     }
 
     // Stop player data fetch and detach it from speaker
-    this._player.stop(); // stop fetching by spotify
-    this._player.pause(); // pause stream inflow
-    this._player.unpipe(); // break pipe from speaker
-    this._player.read(); // drain everything that we have
-    this._player.resume(); // continue with stream
+    this.player.stop(); // stop fetching by spotify
+    this.player.pause(); // pause stream inflow
+    this.player.unpipe(); // break pipe from speaker
+    this.player.read(); // drain everything that we have
+    this.player.resume(); // continue with stream
 
     // Immediately stop sound.
     try {
-      this._speaker.close();
+      this.speaker.close();
     } catch (e) {
-      console.error("Error during speaker close", e)
+      console.error('Error during speaker close', e);
     }
 
     // Put speaker into null
-    this._speaker = null;
+    this.speaker = null;
 
     // Set state
-    this._playing = false;
+    this.playing = false;
   }
 
   createSpeaker() {
-    this._speaker = new Speaker();
+    this.speaker = new Speaker();
   }
 }

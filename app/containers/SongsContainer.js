@@ -1,9 +1,9 @@
 // @flow
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import { Songs } from "../components/songs/Songs";
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Songs } from '../components/songs/Songs';
 
-function mapStateToProps(state) {
+function mapStateToProps() {
   return {};
 }
 

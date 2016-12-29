@@ -4,14 +4,14 @@ import {
   SPOTIFY_WEB_AUTHENTICATION_SUCCESS,
   SPOTIFY_WEB_AUTHENTICATION_FAIL,
   SPOTIFY_WEB_AUTHENTICATION_LOGOUT
-} from "../actions/spotifyWebAuthentication";
-import { SpotifyWebClient } from "../api/SpotifyWebClient";
+} from '../actions/spotifyWebAuthentication';
+import { SpotifyWebClient } from '../api/SpotifyWebClient';
 
 export default function spotifyWebAuthentication(state: ?Object, action: Object): Object {
-  if (typeof state === "undefined") {
+  if (typeof state === 'undefined') {
     return {
-      loginState: "NOT_STARTED"
-    }
+      loginState: 'NOT_STARTED'
+    };
   }
   switch (action.type) {
     case SPOTIFY_WEB_AUTHENTICATION_START:

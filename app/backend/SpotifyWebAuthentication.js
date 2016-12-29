@@ -29,11 +29,7 @@ const spotifyWebApi = new SpotifyWebApi({
 
 export class SpotifyWebAuthentication {
 
-  authorize = () => {
-    return spotifyOauth
+  authorize = () => spotifyOauth
       .getAuthorizationCode(options)
-      .then(code => {
-        return spotifyWebApi.authorizationCodeGrant(code);
-      });
-  };
+      .then(code => spotifyWebApi.authorizationCodeGrant(code));
 }

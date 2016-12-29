@@ -1,8 +1,8 @@
 // @flow
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import { Login } from "../components/login/Login";
-import { spotifyWebLogin } from "../actions/spotifyWebAuthentication";
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Login } from '../components/login/Login';
+import { spotifyWebLogin } from '../actions/spotifyWebAuthentication';
 
 function mapStateToProps(state) {
   return {
@@ -12,7 +12,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({spotifyWebLogin}, dispatch);
+  return bindActionCreators({ spotifyWebLogin }, dispatch);
 }
 
 // $FlowFixMe: IntelliJ got crazy

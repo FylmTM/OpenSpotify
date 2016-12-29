@@ -1,7 +1,7 @@
 // @flow
-import { ipcRenderer } from "electron";
-import { getPassword, replacePassword, deletePassword } from "keytar";
-import { SpotifyWebClient } from "./SpotifyWebClient";
+import { ipcRenderer } from 'electron';
+import { getPassword, replacePassword, deletePassword } from 'keytar';
+import { SpotifyWebClient } from './SpotifyWebClient';
 
 let authorized = false;
 
@@ -23,10 +23,7 @@ export class SpotifyLibClient {
             break;
         }
       });
-      ipcRenderer.send('spotify-lib-auth', {
-        login: login,
-        password: password
-      });
+      ipcRenderer.send('spotify-lib-auth', { login, password });
     }).then(result => {
       SpotifyLibClient.updateCredentials(login, password);
       return Promise.resolve(result);
@@ -35,35 +32,36 @@ export class SpotifyLibClient {
 
   static updateCredentials(login: string, password: string): void {
     SpotifyWebClient.getMe()
-      .then((userData: {id: string}) => {
-        replacePassword("openSpotify-libspotify", `${userData.id}-login`, login);
-        replacePassword("openSpotify-libspotify", `${userData.id}-password`, password);
+      .then((userData: { id: string }) => {
+        replacePassword('openSpotify-libspotify', `${userData.id}-login`, login);
+        replacePassword('openSpotify-libspotify', `${userData.id}-password`, password);
       })
-      .catch(error => console.error("Update credentials failed", error));
+      .catch(error => console.error('Update credentials failed', error));
   }
 
   static getCredentials(): Promise<Object> {
     return SpotifyWebClient.getMe()
-      .then((userData: {id: string}) => {
-        return Promise.resolve({
-          login: getPassword("openSpotify-libspotify", `${userData.id}-login`) || '',
-          password: getPassword("openSpotify-libspotify", `${userData.id}-password`) || ''
-        })
-      });
+      .then((userData: { id: string }) => Promise.resolve({
+        login: getPassword('openSpotify-libspotify', `${userData.id}-login`) || '',
+        password: getPassword('openSpotify-libspotify', `${userData.id}-password`) || ''
+      }));
   }
 
   static deleteCredentials() {
     SpotifyWebClient.getMe()
-      .then((userData: {id: string}) => {
-        deletePassword("openSpotify-libspotify", `${userData.id}-login`);
-        deletePassword("openSpotify-libspotify", `${userData.id}-password`);
+      .then((userData: { id: string }) => {
+        deletePassword('openSpotify-libspotify', `${userData.id}-login`);
+        deletePassword('openSpotify-libspotify', `${userData.id}-password`);
         return Promise.resolve();
+      })
+      .catch((error) => {
+        console.error('Get credentials error', error);
       });
   }
 
   static logout(): Promise<string> {
     if (authorized) {
-      return new Promise((resolve: Function, reject: Function) => {
+      return new Promise((resolve: Function) => {
         ipcRenderer.once('spotify-lib-auth-logout-finished', () => {
           authorized = false;
           resolve('logout');

@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { SpotifyLibConfiguration } from "./parts/SpotifyLibConfiguration";
+import React, { Component } from 'react';
+import { SpotifyLibConfiguration } from './parts/SpotifyLibConfiguration';
 
 export class Configuration extends Component {
   props: {
@@ -8,21 +8,23 @@ export class Configuration extends Component {
     spotifyLibLogout: Function
   };
 
+  static propTypes = {
+    spotifyLibState: React.PropTypes.object.isRequired,
+    spotifyLibLogin: React.PropTypes.func.isRequired,
+    spotifyLibLogout: React.PropTypes.func.isRequired
+  };
+
   render() {
     return (
       <div className="row">
         <div className="col">
-          <SpotifyLibConfiguration state={this.props.spotifyLibState}
-                                   login={this.props.spotifyLibLogin}
-                                   logout={this.props.spotifyLibLogout}/>
+          <SpotifyLibConfiguration
+            state={this.props.spotifyLibState}
+            login={this.props.spotifyLibLogin}
+            logout={this.props.spotifyLibLogout}
+          />
         </div>
       </div>
     );
   }
 }
-
-Configuration.propTypes = {
-  spotifyLibState: React.PropTypes.object.isRequired,
-  spotifyLibLogin: React.PropTypes.func.isRequired,
-  spotifyLibLogout: React.PropTypes.func.isRequired
-};

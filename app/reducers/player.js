@@ -1,6 +1,6 @@
 // @flow
-import {PLAYER_PLAY, PLAYER_STOP} from "../actions/player";
-import {ipcRenderer} from 'electron';
+import { ipcRenderer } from 'electron';
+import { PLAYER_PLAY, PLAYER_STOP } from '../actions/player';
 
 export default function player(state: Object = {}, action: Object) {
   switch (action.type) {

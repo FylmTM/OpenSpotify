@@ -1,7 +1,7 @@
 // @flow
-import React, { Component } from "react";
-import { Spinner } from "@blueprintjs/core";
-import { SpotifyLibClient } from "../../../api/SpotifyLibClient";
+import React, { Component } from 'react';
+import { Spinner } from '@blueprintjs/core';
+import { SpotifyLibClient } from '../../../api/SpotifyLibClient';
 
 export class SpotifyLibConfiguration extends Component {
   props: {
@@ -17,7 +17,7 @@ export class SpotifyLibConfiguration extends Component {
     initialized: boolean,
     login: string,
     password: string,
-    error: Object
+    error: string | boolean
   };
 
   constructor(props: Object) {
@@ -27,15 +27,15 @@ export class SpotifyLibConfiguration extends Component {
       login: '',
       password: '',
       error: false
-    }
+    };
   }
 
   handleLoginType = (event: Object) => {
-    this.setState({login: event.target.value});
+    this.setState({ login: event.target.value });
   };
 
   handlePasswordType = (event: Object) => {
-    this.setState({password: event.target.value});
+    this.setState({ password: event.target.value });
   };
 
   handleLogin = (event: Object) => {
@@ -73,7 +73,7 @@ export class SpotifyLibConfiguration extends Component {
           initialized: false,
           error: error.toString()
         });
-      })
+      });
   }
 
   componentWillUnmount() {
@@ -105,7 +105,7 @@ export class SpotifyLibConfiguration extends Component {
     if (this.props.state.loggedIn) {
       return (
         <div className="pt-callout pt-intent-success margin-top-5">Connected.</div>
-      )
+      );
     }
     switch (this.props.state.authState) {
       case 'LOGIN_STARTED':
@@ -148,12 +148,16 @@ export class SpotifyLibConfiguration extends Component {
     if (this.state.initialized) {
       return (
         <div className="pt-control-group margin-top-5">
-          <input className="pt-input" type="text" placeholder="Login"
-                 value={this.state.login}
-                 onChange={this.handleLoginType}/>
-          <input className="pt-input" type="password" placeholder="Password"
-                 value={this.state.password}
-                 onChange={this.handlePasswordType}/>
+          <input
+            className="pt-input" type="text" placeholder="Login"
+            value={this.state.login}
+            onChange={this.handleLoginType}
+          />
+          <input
+            className="pt-input" type="password" placeholder="Password"
+            value={this.state.password}
+            onChange={this.handlePasswordType}
+          />
           <button className="pt-button pt-intent-primary" type="button" onClick={this.handleLogin}>Login</button>
           <button className="pt-button" type="button" onClick={this.handleLogout}>Logout</button>
           <button className="pt-button pt-intent-danger" type="button" onClick={this.handleDelete}>Delete</button>

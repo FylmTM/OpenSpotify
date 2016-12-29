@@ -1,29 +1,24 @@
 // @flow
-import React, { Component } from "react";
-import { SpotifyWebClient } from "../../api/SpotifyWebClient"
-import { Button, Spinner } from "@blueprintjs/core";
-import styles from "./Login.css";
+import React, { Component } from 'react';
+import { Button, Spinner } from '@blueprintjs/core';
+import { SpotifyWebClient } from '../../api/SpotifyWebClient';
+import styles from './Login.css';
 
 export class Login extends Component {
   props: {
     loginState: string,
-    loginError: string
+    loginError: string,
+    spotifyWebLogin: Function
   };
-  spotifyWebLogin: Function;
-
-  constructor(props: Object) {
-    super(props);
-    this.spotifyWebLogin = this.props.spotifyWebLogin;
-  }
 
   handleSubmit = (event: Object) => {
     event.preventDefault();
-    this.spotifyWebLogin();
+    this.props.spotifyWebLogin();
   };
 
   handleLogin = () => {
     if (SpotifyWebClient.isAuthenticated()) {
-      this.context.router.push("/main");
+      this.context.router.push('/main');
     }
   };
 
@@ -35,23 +30,8 @@ export class Login extends Component {
     this.handleLogin();
   }
 
-  render() {
-    return (
-      <div className={`row text-align-center full-height ${styles.loginContainer}`}>
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <Button type="submit"
-                    className="pt-fill pt-intent-primary pt-large"
-                    disabled={this.props.loginState == 'STARTED'}>Login</Button>
-            {this.renderState()}
-          </form>
-        </div>
-      </div>
-    );
-  }
-
   renderState() {
-    if (this.props.loginState == 'STARTED') {
+    if (this.props.loginState === 'STARTED') {
       return (
         <Spinner className="pt-large margin-top-10"/>
       );
@@ -61,8 +41,25 @@ export class Login extends Component {
         <div className="pt-callout pt-intent-danger margin-top-10">
           {this.props.loginError}
         </div>
-      )
+      );
     }
+  }
+
+  render() {
+    return (
+      <div className={`row text-align-center full-height ${styles.loginContainer}`}>
+        <div>
+          <form onSubmit={this.handleSubmit}>
+            <Button
+              type="submit"
+              className="pt-fill pt-intent-primary pt-large"
+              disabled={this.props.loginState === 'STARTED'}
+            >Login</Button>
+            {this.renderState()}
+          </form>
+        </div>
+      </div>
+    );
   }
 }
 

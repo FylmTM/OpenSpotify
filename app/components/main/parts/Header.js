@@ -1,18 +1,15 @@
 // @flow
-import React, { Component } from "react";
-import { IndexLink } from "react-router";
+import React, { Component } from 'react';
+import { IndexLink } from 'react-router';
 
 export class Header extends Component {
-  logout: Function;
-
-  constructor(props) {
-    super(props);
-    this.logout = props.logout;
-  }
+  props: {
+    logout: Function
+  };
 
   handleLogout = () => {
-    this.logout();
-    this.context.router.push("/");
+    this.props.logout();
+    this.context.router.push('/');
   };
 
   render() {
@@ -23,7 +20,7 @@ export class Header extends Component {
           <button className="pt-button pt-minimal pt-icon-log-out" onClick={this.handleLogout}/>
         </div>
       </nav>
-    )
+    );
   }
 }
 

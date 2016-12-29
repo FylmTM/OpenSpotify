@@ -6,14 +6,14 @@ import {
   SPOTIFY_LIB_AUTHENTICATION_LOGOUT_START,
   SPOTIFY_LIB_AUTHENTICATION_LOGOUT_SUCCESS,
   SPOTIFY_LIB_AUTHENTICATION_LOGOUT_FAIL,
-} from "../actions/spotifyLibAuthentication";
+} from '../actions/spotifyLibAuthentication';
 
 export default function spotifyLibAuthentication(state: ?Object, action: Object): Object {
-  if (typeof state === "undefined") {
+  if (typeof state === 'undefined') {
     return {
       loggedIn: false,
-      authState: "UNKNOWN",
-    }
+      authState: 'UNKNOWN',
+    };
   }
   switch (action.type) {
     case SPOTIFY_LIB_AUTHENTICATION_START:
