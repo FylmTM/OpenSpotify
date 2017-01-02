@@ -1,9 +1,9 @@
 // @flow
-import React, { Component } from 'react';
+import React from 'react';
 import { IndexLink } from 'react-router';
 import styles from './Sidebar.css';
 
-export class Sidebar extends Component {
+export class Sidebar extends React.Component {
 
   render() {
     return (

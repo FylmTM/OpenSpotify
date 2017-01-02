@@ -1,10 +1,10 @@
 // @flow
-import React, { Component } from 'react';
+import React from 'react';
 import { Button, Spinner } from '@blueprintjs/core';
 import { SpotifyWebClient } from '../../api/SpotifyWebClient';
 import styles from './Login.css';
 
-export class Login extends Component {
+export class Login extends React.Component {
   props: {
     loginState: string,
     loginError: string,
@@ -66,10 +66,3 @@ export class Login extends Component {
 Login.contextTypes = {
   router: React.PropTypes.object.isRequired
 };
-
-Login.propTypes = {
-  spotifyWebLogin: React.PropTypes.func.isRequired,
-  loginState: React.PropTypes.string.isRequired,
-  loginError: React.PropTypes.string
-};
-

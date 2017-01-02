@@ -1,17 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { SpotifyLibConfiguration } from './parts/SpotifyLibConfiguration';
 
-export class Configuration extends Component {
+export class Configuration extends React.Component {
   props: {
     spotifyLibState: Object,
     spotifyLibLogin: Function,
     spotifyLibLogout: Function
-  };
-
-  static propTypes = {
-    spotifyLibState: React.PropTypes.object.isRequired,
-    spotifyLibLogin: React.PropTypes.func.isRequired,
-    spotifyLibLogout: React.PropTypes.func.isRequired
   };
 
   render() {

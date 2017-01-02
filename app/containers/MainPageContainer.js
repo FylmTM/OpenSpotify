@@ -1,12 +1,13 @@
 // @flow
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import type { ApplicationState } from '../store/types';
 import { Main } from '../components/main/Main';
 import { playerPlay, playerStop } from '../actions/player';
 import { spotifyWebLogout } from '../actions/spotifyWebAuthentication';
 import { spotifyLibLoginWithSavedCredentials } from '../actions/spotifyLibAuthentication';
 
-function mapStateToProps(state) {
+function mapStateToProps(state: ApplicationState) {
   return {
     player: {
       authState: state.spotifyLibAuthentication.authState,

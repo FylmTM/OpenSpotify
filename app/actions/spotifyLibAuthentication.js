@@ -1,47 +1,41 @@
 // @flow
+import type { ApplicationAction } from './types';
 import { SpotifyLibClient } from '../api/SpotifyLibClient';
 
-export const SPOTIFY_LIB_AUTHENTICATION_START = 'SPOTIFY_LIB_AUTHENTICATION_START';
-export const SPOTIFY_LIB_AUTHENTICATION_SUCCESS = 'SPOTIFY_LIB_AUTHENTICATION_SUCCESS';
-export const SPOTIFY_LIB_AUTHENTICATION_FAIL = 'SPOTIFY_LIB_AUTHENTICATION_FAIL';
-export const SPOTIFY_LIB_AUTHENTICATION_LOGOUT_START = 'SPOTIFY_LIB_AUTHENTICATION_LOGOUT_START';
-export const SPOTIFY_LIB_AUTHENTICATION_LOGOUT_SUCCESS = 'SPOTIFY_LIB_AUTHENTICATION_LOGOUT_SUCCESS';
-export const SPOTIFY_LIB_AUTHENTICATION_LOGOUT_FAIL = 'SPOTIFY_LIB_AUTHENTICATION_LOGOUT_FAIL';
-
-function spotifyLibLoginStart() {
+function spotifyLibLoginStart(): ApplicationAction {
   return {
-    type: SPOTIFY_LIB_AUTHENTICATION_START
+    type: 'SPOTIFY_LIB_AUTHENTICATION_START'
   };
 }
 
-function spotifyLibLoginSuccess() {
+function spotifyLibLoginSuccess(): ApplicationAction {
   return {
-    type: SPOTIFY_LIB_AUTHENTICATION_SUCCESS
+    type: 'SPOTIFY_LIB_AUTHENTICATION_SUCCESS'
   };
 }
 
-function spotifyLibLoginFail(error: string) {
+function spotifyLibLoginFail(error: string): ApplicationAction {
   return {
-    type: SPOTIFY_LIB_AUTHENTICATION_FAIL,
+    type: 'SPOTIFY_LIB_AUTHENTICATION_FAIL',
     error
   };
 }
 
-function spotifyLibLogoutStart() {
+function spotifyLibLogoutStart(): ApplicationAction {
   return {
-    type: SPOTIFY_LIB_AUTHENTICATION_LOGOUT_START
+    type: 'SPOTIFY_LIB_AUTHENTICATION_LOGOUT_START'
   };
 }
 
-function spotifyLibLogoutSuccess() {
+function spotifyLibLogoutSuccess(): ApplicationAction {
   return {
-    type: SPOTIFY_LIB_AUTHENTICATION_LOGOUT_SUCCESS
+    type: 'SPOTIFY_LIB_AUTHENTICATION_LOGOUT_SUCCESS'
   };
 }
 
-function spotifyLibLogoutFail() {
+function spotifyLibLogoutFail(): ApplicationAction {
   return {
-    type: SPOTIFY_LIB_AUTHENTICATION_LOGOUT_FAIL
+    type: 'SPOTIFY_LIB_AUTHENTICATION_LOGOUT_FAIL'
   };
 }
 

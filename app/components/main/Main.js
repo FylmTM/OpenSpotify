@@ -1,11 +1,11 @@
 // @flow
-import React, { Component } from 'react';
+import React from 'react';
 import styles from './Main.css';
 import { Header } from './parts/Header';
 import { Sidebar } from './parts/Sidebar';
 import { Player } from './player/Player';
 
-export class Main extends Component {
+export class Main extends React.Component {
   props: {
     children: HTMLElement,
     spotifyLibLoginWithSavedCredentials: Function,
@@ -37,10 +37,12 @@ export class Main extends Component {
             </div>
             <div className="row dark-bg pt-elevation-1">
               <div className={`col ${styles.player}`}>
-                <Player state={this.props.player}
-                        authenticate={this.props.spotifyLibLoginWithSavedCredentials}
-                        play={this.props.playerPlay}
-                        stop={this.props.playerStop}/>
+                <Player
+                  state={this.props.player}
+                  authenticate={this.props.spotifyLibLoginWithSavedCredentials}
+                  play={this.props.playerPlay}
+                  stop={this.props.playerStop}
+                />
               </div>
             </div>
           </div>
@@ -52,12 +54,4 @@ export class Main extends Component {
 
 Main.contextTypes = {
   router: React.PropTypes.object.isRequired
-};
-
-Main.propTypes = {
-  spotifyLibLoginWithSavedCredentials: React.PropTypes.func,
-  spotifyWebLogout: React.PropTypes.func,
-  player: React.PropTypes.object,
-  playerPlay: React.PropTypes.func,
-  playerStop: React.PropTypes.func
 };

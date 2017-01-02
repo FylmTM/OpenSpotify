@@ -1,26 +1,22 @@
 // @flow
+import type { ApplicationAction } from './types';
 import { SpotifyWebClient } from '../api/SpotifyWebClient';
 
-export const SPOTIFY_WEB_AUTHENTICATION_START = 'SPOTIFY_WEB_AUTHENTICATION_START';
-export const SPOTIFY_WEB_AUTHENTICATION_SUCCESS = 'SPOTIFY_WEB_AUTHENTICATION_SUCCESS';
-export const SPOTIFY_WEB_AUTHENTICATION_FAIL = 'SPOTIFY_WEB_AUTHENTICATION_FAIL';
-export const SPOTIFY_WEB_AUTHENTICATION_LOGOUT = 'SPOTIFY_WEB_AUTHENTICATION_LOGOUT';
-
-function spotifyWebLoginStart() {
+function spotifyWebLoginStart(): ApplicationAction {
   return {
-    type: SPOTIFY_WEB_AUTHENTICATION_START
+    type: 'SPOTIFY_WEB_AUTHENTICATION_START'
   };
 }
 
-function spotifyWebLoginSuccess() {
+function spotifyWebLoginSuccess(): ApplicationAction {
   return {
-    type: SPOTIFY_WEB_AUTHENTICATION_SUCCESS
+    type: 'SPOTIFY_WEB_AUTHENTICATION_SUCCESS'
   };
 }
 
-function spotifyWebLoginFail(error: string) {
+function spotifyWebLoginFail(error: string): ApplicationAction {
   return {
-    type: SPOTIFY_WEB_AUTHENTICATION_FAIL,
+    type: 'SPOTIFY_WEB_AUTHENTICATION_FAIL',
     error
   };
 }
@@ -36,8 +32,8 @@ export function spotifyWebLogin() {
   };
 }
 
-export function spotifyWebLogout() {
+export function spotifyWebLogout(): ApplicationAction {
   return {
-    type: SPOTIFY_WEB_AUTHENTICATION_LOGOUT
+    type: 'SPOTIFY_WEB_AUTHENTICATION_LOGOUT'
   };
 }

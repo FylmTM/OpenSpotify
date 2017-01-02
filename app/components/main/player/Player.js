@@ -1,10 +1,10 @@
 // @flow
-import React, { Component } from 'react';
+import React from 'react';
 import { Spinner } from '@blueprintjs/core';
 import { Link } from 'react-router';
 import styles from './Player.css';
 
-export class Player extends Component {
+export class Player extends React.Component {
   props: {
     state: {
       enabled: boolean,

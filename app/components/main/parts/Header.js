@@ -1,8 +1,8 @@
 // @flow
-import React, { Component } from 'react';
+import React from 'react';
 import { IndexLink } from 'react-router';
 
-export class Header extends Component {
+export class Header extends React.Component {
   props: {
     logout: Function
   };

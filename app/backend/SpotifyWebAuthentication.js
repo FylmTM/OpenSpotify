@@ -1,7 +1,10 @@
+// @flow
 import electronOauth2 from 'electron-oauth2';
 import SpotifyWebApi from 'spotify-web-api-node';
 
 export class SpotifyWebAuthentication {
+  spotifyOauth: Object;
+  spotifyWebApi: SpotifyWebApi;
 
   constructor() {
     const config = {

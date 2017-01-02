@@ -1,9 +1,9 @@
 // @flow
-import React, { Component } from 'react';
+import React from 'react';
 import { Spinner } from '@blueprintjs/core';
 import { SpotifyLibClient } from '../../../api/SpotifyLibClient';
 
-export class SpotifyLibConfiguration extends Component {
+export class SpotifyLibConfiguration extends React.Component {
   props: {
     state: {
       loggedIn: boolean,
@@ -170,9 +170,3 @@ export class SpotifyLibConfiguration extends Component {
     }
   }
 }
-
-SpotifyLibConfiguration.propTypes = {
-  state: React.PropTypes.object.isRequired,
-  login: React.PropTypes.func.isRequired,
-  logout: React.PropTypes.func.isRequired
-};

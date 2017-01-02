@@ -1,7 +1,7 @@
 // @flow
-import React, { Component } from 'react';
+import React from 'react';
 
-export class Songs extends Component {
+export class Songs extends React.Component {
 
   render() {
     return (
