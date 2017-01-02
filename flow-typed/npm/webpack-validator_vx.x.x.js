@@ -1,4 +1,4 @@
-// flow-typed signature: 69003bdf1786ad04d751d288d689d60d
+// flow-typed signature: 7bc45dca45a02c431b3c6c147fa09b14
 // flow-typed version: <<STUB>>/webpack-validator_v^2.2.11/flow_v0.36.0
 
 /**
@@ -71,6 +71,10 @@ declare module 'webpack-validator/dist/properties/node/index' {
 }
 
 declare module 'webpack-validator/dist/properties/output/index' {
+  declare module.exports: any;
+}
+
+declare module 'webpack-validator/dist/properties/performance/index' {
   declare module.exports: any;
 }
 
@@ -153,6 +157,9 @@ declare module 'webpack-validator/dist/properties/node/index.js' {
 }
 declare module 'webpack-validator/dist/properties/output/index.js' {
   declare module.exports: $Exports<'webpack-validator/dist/properties/output/index'>;
+}
+declare module 'webpack-validator/dist/properties/performance/index.js' {
+  declare module.exports: $Exports<'webpack-validator/dist/properties/performance/index'>;
 }
 declare module 'webpack-validator/dist/properties/plugins/index.js' {
   declare module.exports: $Exports<'webpack-validator/dist/properties/plugins/index'>;

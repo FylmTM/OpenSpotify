@@ -1,4 +1,4 @@
-// flow-typed signature: 90cca258645251ab34dcc89a9a57fda9
+// flow-typed signature: 8346bf28942375ebb86a982fee7fc63a
 // flow-typed version: <<STUB>>/jsdom_v^9.8.3/flow_v0.36.0
 
 /**
@@ -171,6 +171,10 @@ declare module 'jsdom/lib/jsdom/living/generated/AddEventListenerOptions' {
 }
 
 declare module 'jsdom/lib/jsdom/living/generated/Attr' {
+  declare module.exports: any;
+}
+
+declare module 'jsdom/lib/jsdom/living/generated/CDATASection' {
   declare module.exports: any;
 }
 
@@ -814,6 +818,10 @@ declare module 'jsdom/lib/jsdom/living/node' {
   declare module.exports: any;
 }
 
+declare module 'jsdom/lib/jsdom/living/nodes/CDATASection-impl' {
+  declare module.exports: any;
+}
+
 declare module 'jsdom/lib/jsdom/living/nodes/CharacterData-impl' {
   declare module.exports: any;
 }
@@ -1365,6 +1373,9 @@ declare module 'jsdom/lib/jsdom/living/generated/AddEventListenerOptions.js' {
 declare module 'jsdom/lib/jsdom/living/generated/Attr.js' {
   declare module.exports: $Exports<'jsdom/lib/jsdom/living/generated/Attr'>;
 }
+declare module 'jsdom/lib/jsdom/living/generated/CDATASection.js' {
+  declare module.exports: $Exports<'jsdom/lib/jsdom/living/generated/CDATASection'>;
+}
 declare module 'jsdom/lib/jsdom/living/generated/CharacterData.js' {
   declare module.exports: $Exports<'jsdom/lib/jsdom/living/generated/CharacterData'>;
 }
@@ -1844,6 +1855,9 @@ declare module 'jsdom/lib/jsdom/living/node-type.js' {
 }
 declare module 'jsdom/lib/jsdom/living/node.js' {
   declare module.exports: $Exports<'jsdom/lib/jsdom/living/node'>;
+}
+declare module 'jsdom/lib/jsdom/living/nodes/CDATASection-impl.js' {
+  declare module.exports: $Exports<'jsdom/lib/jsdom/living/nodes/CDATASection-impl'>;
 }
 declare module 'jsdom/lib/jsdom/living/nodes/CharacterData-impl.js' {
   declare module.exports: $Exports<'jsdom/lib/jsdom/living/nodes/CharacterData-impl'>;
